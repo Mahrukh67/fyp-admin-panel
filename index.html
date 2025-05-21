@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sentiments Analysis of Indoor Patien</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+<!-- Sidebar Start -->
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <img src="./img/logo.jpeg" alt="logo" style="width: 5rem; height: 5rem;" >
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle" src="img/admin.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0">Admin</h6>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="all-feedback.html" class="nav-item nav-link"><i class="fa fa-comments me-2"></i>Patient Feedback</a>
+            <a href="departments.html" class="nav-item nav-link"><i class="fa fa-hospital me-2"></i>Department Stats</a>
+            <a href="sentiment-report.html" class="nav-item nav-link"><i class="fa fa-chart-pie me-2"></i>Sentiment Reports</a>
+            <a href="settings.html" class="nav-item nav-link"><i class="fa fa-cogs me-2"></i>Settings</a>
+        </div>
+    </nav>
+</div>
+<!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/team-1.jpeg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Mahnoor send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/team-2.jpeg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Mahrukh send you a message</h6>
+                                        <small>18 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/team-3.jpeg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Naz Khan send you a message</h6>
+                                        <small>35 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img//admin.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Nida Khan</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Sentiment Stats Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total reviews</p>
+                    <h6 class="mb-0">56</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-database fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Feedbacks</p>
+                    <h6 class="mb-0">1245</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-smile fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Positive Sentiments</p>
+                    <h6 class="mb-0">832</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-frown fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Negative Sentiments</p>
+                    <h6 class="mb-0">189</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sentiment Stats End -->
+<!-- Sentiment Charts Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Weekly Sentiment Trends</h6>
+                    <a href="sentiment-report.html">View Full Report</a>
+                </div>
+                <p class="text-muted small">Displays the count of positive, negative, and neutral sentiments collected from patient feedback over the past 7 days. Helps track emotional patterns and service effectiveness over time.</p>
+                <canvas id="sentiment-trend"></canvas>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Feedback by Department</h6>
+                    <a href="departments.html">Explore Departments</a>
+                </div>
+                <p class="text-muted small">This chart breaks down patient sentiment across different hospital departments such as ICU, Cardiology, and General Ward. Useful for identifying department-specific concerns or strengths.</p>
+                <canvas id="department-feedback"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sentiment Charts End -->
+
+<!-- Recent Feedbacks Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Recent Patient Feedback</h6>
+            <a href="all-feedback.html">Show All</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Patient ID</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Sentiment</th>
+                        <th scope="col">Feedback</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>21 May 2025</td>
+                        <td>PID-0012</td>
+                        <td>Cardiology</td>
+                        <td><span class="badge bg-success">Positive</span></td>
+                        <td>"Staff was really cooperative and helpful."</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>21 May 2025</td>
+                        <td>PID-0013</td>
+                        <td>ICU</td>
+                        <td><span class="badge bg-danger">Negative</span></td>
+                        <td>"Room hygiene was not good."</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>21 May 2025</td>
+                        <td>PID-0014</td>
+                        <td>Neurology</td>
+                        <td><span class="badge bg-warning">Neutral</span></td>
+                        <td>"Service was okay, could be better."</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Recent Feedbacks Table End -->
+
+<!-- Widgets Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <!-- Recent Feedback Messages -->
+        <div class="col-sm-12 col-md-6 col-xl-6">
+            <div class="h-100 bg-light rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="mb-0">Recent Patient Feedback</h6>
+                    <a href="all-feedback.html">View All</a>
+                </div>
+                <div class="d-flex align-items-center border-bottom py-3">
+                    <img class="rounded-circle flex-shrink-0" src="img/team-1.jpeg" alt="" style="width: 40px; height: 40px;">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-0">PID-0012</h6>
+                            <small>10 minutes ago</small>
+                        </div>
+                        <span>"Excellent care by staff in Cardiology ward."</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center border-bottom py-3">
+                    <img class="rounded-circle flex-shrink-0" src="img/team-2.jpeg" alt="" style="width: 40px; height: 40px;">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-0">PID-0013</h6>
+                            <small>30 minutes ago</small>
+                        </div>
+                        <span>"Hygiene level in ICU needs improvement."</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-3">
+                    <img class="rounded-circle flex-shrink-0" src="img/team-3.jpeg" alt="" style="width: 40px; height: 40px;">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-0">PID-0014</h6>
+                            <small>1 hour ago</small>
+                        </div>
+                        <span>"Average experience, can be improved."</span>
+                    </div>
+                </div>
+                 <div class="d-flex align-items-center pt-3">
+                    <img class="rounded-circle flex-shrink-0" src="img/team-4.jpeg" alt="" style="width: 40px; height: 40px;">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-0">PID-0014</h6>
+                            <small>1 hour ago</small>
+                        </div>
+                        <span>"Average experience, can be improved."</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Notes / Task List -->
+        <div class="col-sm-12 col-md-6 col-xl-6">
+            <div class="h-100 bg-light rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Admin To-Do List</h6>
+                    <a href="#">View All</a>
+                </div>
+                <div class="d-flex mb-2">
+                    <input class="form-control bg-transparent" type="text" placeholder="Enter task">
+                    <button type="button" class="btn btn-primary ms-2">Add</button>
+                </div>
+                <div class="d-flex align-items-center border-bottom py-2">
+                    <input class="form-check-input m-0" type="checkbox">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 align-items-center justify-content-between">
+                            <span>Review recent negative feedback</span>
+                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center border-bottom py-2">
+                    <input class="form-check-input m-0" type="checkbox">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 align-items-center justify-content-between">
+                            <span>Export weekly sentiment report</span>
+                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-2">
+                    <input class="form-check-input m-0" type="checkbox">
+                    <div class="w-100 ms-3">
+                        <div class="d-flex w-100 align-items-center justify-content-between">
+                            <span>Organize feedback by department</span>
+                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Widgets End -->
+
+<!-- Footer Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded-top p-4">
+        <div class="row">
+            <div class="col-12 col-sm-6 text-center text-sm-start">
+                &copy; <a href="#">Sentiment Analysis of indoor patients</a>, All Rights Reserved.2025 
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+
+<script>
+// Sentiment Trend Line Chart
+const ctxTrend = document.getElementById('sentiment-trend').getContext('2d');
+new Chart(ctxTrend, {
+    type: 'line',
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+            {
+                label: 'Positive',
+                data: [12, 19, 14, 17, 20, 22, 18],
+                borderColor: 'green',
+                backgroundColor: 'rgba(0,128,0,0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Negative',
+                data: [5, 7, 6, 4, 3, 5, 4],
+                borderColor: 'red',
+                backgroundColor: 'rgba(255,0,0,0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Neutral',
+                data: [8, 6, 7, 8, 9, 10, 9],
+                borderColor: 'orange',
+                backgroundColor: 'rgba(255,165,0,0.1)',
+                tension: 0.4
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' }
+        }
+    }
+});
+
+// Department-wise Feedback Bar Chart
+const ctxDept = document.getElementById('department-feedback').getContext('2d');
+new Chart(ctxDept, {
+    type: 'bar',
+    data: {
+        labels: ['ICU', 'Cardiology', 'General Ward', 'Neurology', 'Surgery'],
+        datasets: [
+            {
+                label: 'Positive',
+                data: [30, 25, 40, 18, 22],
+                backgroundColor: 'green'
+            },
+            {
+                label: 'Negative',
+                data: [5, 10, 8, 6, 4],
+                backgroundColor: 'red'
+            },
+            {
+                label: 'Neutral',
+                data: [10, 8, 12, 9, 7],
+                backgroundColor: 'orange'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
